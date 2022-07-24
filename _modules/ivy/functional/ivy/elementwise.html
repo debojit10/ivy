@@ -266,7 +266,53 @@
 <span class="sd">    ret</span>
 <span class="sd">        an array containing the inverse cosine of each element in x. The returned array</span>
 <span class="sd">        must have a floating-point data type determined by :ref:`type-promotion`.</span>
+<span class="sd">     This method conforms to the</span>
+<span class="sd">    `Array API Standard &lt;https://data-apis.org/array-api/latest/&gt;`_.</span>
+<span class="sd">    This docstring is an extension of the</span>
+<span class="sd">    `docstring &lt;https://data-apis.org/array-api/latest/API_specification/generated/</span>
+<span class="sd">    signatures.elementwise_functions.acos.html&gt;` _ in the standard.</span>
+<span class="sd">    Both the description and the type hints above assumes an array input for simplicity,</span>
+<span class="sd">    but this function is *nestable*, and therefore also accepts :code:`ivy.Container`</span>
+<span class="sd">    instances in place of any of the arguments.</span>
+<span class="sd">    </span>
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    With :code:`ivy.Array` input:</span>
 
+<span class="sd">    &gt;&gt;&gt; x = ivy.array([0., 1., .5])</span>
+<span class="sd">    &gt;&gt;&gt; y = ivy.acos(x)</span>
+<span class="sd">    &gt;&gt;&gt; print(y)</span>
+<span class="sd">    ivy.array([0., 0.841, 0.909])</span>
+
+<span class="sd">    &gt;&gt;&gt; x = ivy.array([0., 0.2, -0.3, 0.6])</span>
+<span class="sd">    &gt;&gt;&gt; y = ivy.zeros(4)</span>
+<span class="sd">    &gt;&gt;&gt; ivy.acos(x, out=y)</span>
+<span class="sd">    &gt;&gt;&gt; print(y)</span>
+<span class="sd">    ivy.array([1.57 , 1.37 , 1.88 , 0.927])</span>
+
+<span class="sd">    &gt;&gt;&gt; x = ivy.array([[0.1, 0.2, 0.3], [-0.4, -0.5, -0.6]])</span>
+<span class="sd">    &gt;&gt;&gt; ivy.acos(x, out=x)</span>
+<span class="sd">    &gt;&gt;&gt; print(x)</span>
+<span class="sd">    ivy.array([[ 0.1,  0.2,  0.3],</span>
+<span class="sd">            [-0.4, -0.5, -0.6]])</span>
+
+<span class="sd">    With :code:`ivy.NativeArray` input:</span>
+
+<span class="sd">    &gt;&gt;&gt; x = ivy.native_array([0., 0.2, -0.3, 0.6])</span>
+<span class="sd">    &gt;&gt;&gt; y = ivy.acos(x)</span>
+<span class="sd">    &gt;&gt;&gt; print(y)</span>
+<span class="sd">    ivy.array([1.57 , 1.37 , 1.88 , 0.927])</span>
+
+<span class="sd">    With :code:`ivy.Container` input:</span>
+<span class="sd">    </span>
+<span class="sd">    &gt;&gt;&gt; x = ivy.Container(a=ivy.array([0.5, -0.75, -0.4]),\</span>
+<span class="sd">                              b=ivy.array([0.4, -0.2, 0.8]))</span>
+<span class="sd">    &gt;&gt;&gt; y = x.acos()</span>
+<span class="sd">    &gt;&gt;&gt; print(y)</span>
+<span class="sd">    {</span>
+<span class="sd">        a: ivy.array([1.05, 2.42, 1.98]),</span>
+<span class="sd">        b: ivy.array([1.16, 1.77, 0.644])</span>
+<span class="sd">    }</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">ivy</span><span class="o">.</span><span class="n">current_backend</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">acos</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="n">out</span><span class="p">)</span></div>
 

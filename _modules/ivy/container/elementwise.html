@@ -386,7 +386,17 @@
 <span class="sd">            a container containing the inverse cosine of each element in ``x``.</span>
 <span class="sd">            The returned container must have a floating-point data type</span>
 <span class="sd">            determined by :ref:`type-promotion`.</span>
-
+<span class="sd">        </span>
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; x = ivy.Container(a=ivy.array([0., 0.6, -0.5]),\</span>
+<span class="sd">                            b=ivy.array([0.5, -0.3, 0]))</span>
+<span class="sd">        &gt;&gt;&gt; y = ivy.Container.static_acos(x)</span>
+<span class="sd">        &gt;&gt;&gt; print(y)</span>
+<span class="sd">        {</span>
+<span class="sd">            a: ivy.array([1.57, 0.927, 2.09]),</span>
+<span class="sd">            b: ivy.array([1.05, 1.88, 1.57])</span>
+<span class="sd">        }</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="n">ContainerBase</span><span class="o">.</span><span class="n">multi_map_in_static_method</span><span class="p">(</span>
             <span class="s2">&quot;acos&quot;</span><span class="p">,</span>
@@ -436,7 +446,17 @@
 <span class="sd">            a container containing the inverse cosine of each element in ``self``.</span>
 <span class="sd">            The returned container must have a floating-point data type</span>
 <span class="sd">            determined by :ref:`type-promotion`.</span>
-
+<span class="sd">        </span>
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; x = ivy.Container(a=ivy.array([0.5, -0.75, -0.4]),\</span>
+<span class="sd">                              b=ivy.array([0.4, -0.2, 0.8]))</span>
+<span class="sd">        &gt;&gt;&gt; y = x.acos()</span>
+<span class="sd">        &gt;&gt;&gt; print(y)</span>
+<span class="sd">        {</span>
+<span class="sd">            a: ivy.array([1.05, 2.42, 1.98]),</span>
+<span class="sd">            b: ivy.array([1.16, 1.77, 0.644])</span>
+<span class="sd">        }</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">static_acos</span><span class="p">(</span>
             <span class="bp">self</span><span class="p">,</span> <span class="n">key_chains</span><span class="p">,</span> <span class="n">to_apply</span><span class="p">,</span> <span class="n">prune_unapplied</span><span class="p">,</span> <span class="n">map_sequences</span><span class="p">,</span> <span class="n">out</span><span class="o">=</span><span class="n">out</span>
